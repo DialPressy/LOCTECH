@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Beau+Rivage&family=Lobster&display=swap" rel="stylesheet">
+<style>
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.traffic-bg{
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    background-image: url("Road-for-Traffic-Project.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.container1{
+    display: flex;
+    width: 1000px;
+    height: 400px;
+    justify-content: start;
+    flex-direction: column;
+
+}
+.container{
+    margin-top: 20px;
+    display: flex;
+    justify-content: start;
+    padding: 5px;    
+}
+
+.light{
+    background-color: #1c2833;
+    padding: 15px;
+    width: 90px;
+    border-radius: 20px 0 20px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.circle{
+    border: transparent 2px solid;
+    background-color: rgba(0,0,0,0.3);
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    margin: 7px auto;
+}
+.circle:after{
+    border-right: 4px solid rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    content: '';
+    width: 30px;
+    height: 30px;
+}
+
+.opacity-red,.opacity,.opacity-green{
+    opacity: 1;
+}
+.no-opacity-red,.no-opacity,.no-opacity-green{
+    opacity: 0.1;
+    
+}
+
+.red{
+    background-color: #c0392b;
+    box-shadow: 0 0 20px 5px #c0392b;
+}   
+
+.yellow{
+    background-color: #f1c40f;
+    box-shadow: 0 0 20px 5px #f1c40f;
+
+}
+
+.green{
+    background-color: #2ecc71;
+    box-shadow: 0 0 20px 5px #2ecc71;
+}
+
+.count-down{
+    width: 80px;
+    height: 80px;
+    border: transparent 2px solid;
+    color: #c0392b;
+    background-color: #1c2833;
+    border-radius: 0px 0px 20px 0;
+    border-left: 2px solid #364d64;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 2rem;
+}
+
+.pole{
+    border-left: 20px solid #1c2833;
+    height: 195px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    border-radius: 0 0 0px 0px;
+
+    
+}
+.pole2{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    padding-left: 2.5rem;
+    margin-top: -5px;
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 100vh;
+    position: absolute; 
+    padding-left: 20px;
+    top: 0;
+    margin-left: -27px;
+    overflow: hidden;
+}
+
+#img{
+    background: transparent;
+    width: 489px;
+    height: 50%;
+    position: relative;
+    margin-bottom: -100px;
+   
+}
+
+.car-moving{
+    animation: moveCar 5s linear infinite;
+}
+
+.modal{
+    padding: 10px 10px 10px 10px;
+    font-size: 345px;
+    font-family: 'Lobster', cursive;
+    color: #c0392b;
+    width: 0px;
+    height: 0px;
+}
+
+@keyframes moveCar {
+  0% {top: 0px; width: 577px; height: 60%;}
+  15% {top: -75px; width: 520px; height: 55%;}
+  30% {top: -150px; width: 463px; height: 50%;}
+  45% {top: -225px; width: 406px; height: 45%;}
+  60% {top: -300px; width: 349px; height: 35%;} 
+  75% {top: -335px; width: 292px; height: 30%;} 
+  90% {top: -380px; width: 178px; height: 15%;}
+  100% {top: -380px; width: 178px; height: 15%;}
+}
+
+@media screen and (max-width: 600px) {
+ .modal{
+     font-size: 35px;
+ }
+ .pole{
+     height: 216px;
+ }
+ 
+ @keyframes moveCar {
+  0% {top: 0px; width: 577px; height: 50%;}
+  15% {top: -75px; width: 520px; height: 45%;}
+  30% {top: -150px; width: 463px; height: 40%;}
+  45% {top: -225px; width: 406px; height: 35%;}
+  60% {top: -300px; width: 349px; height: 30%;} 
+  75% {top: -335px; width: 292px; height: 25%;} 
+  90% {top: -380px; width: 235px; height: 20;}
+  100% {top: -400px; width: 178px; height: 15%;}
+}
+}
+@media screen and (min-width: 600px) {
+    .pole{
+        height: 210px;
+    }
+    .modal{
+        font-size: 230px;
+        text-align: center;
+    }
+}
+</style>
+</head>
+<body>
+        <div class="traffic-bg">
+            <div class="container1">
+                <div class="container">
+                    <div class="light">
+                        <div class="circle red opacity-red" id="red-light"></div>
+                        <div class="circle yellow opacity"></div>
+                        <div class="circle green no-opacity-green"></div>
+                    </div>
+                    <div class="count-down">
+                        50
+                    </div>
+                    <div class="modal">Stop!</div>
+                </div>
+                <div class="pole2">
+                    <div class="pole"></div>
+                </div>
+            </div>
+            <div class="img">
+                <img id="img" src="Sienna.png" width="577px" height="433px" alt="" >
+            </div>
+        </div>
+        
+        
+
+    
+        <!-- <script src="TRAFFIC-LIGHT4.js"></script> -->
+        <script>
+            const red = document.querySelector('.red'),
+            redLight = document.querySelector('#red-light'),
+            yellow = document.querySelector('.yellow'),
+            green = document.querySelector('.green'),
+            countDown = document.querySelector('.count-down'),
+            opacityRed = document.querySelector('.opacity-red'),
+            opacity = document.querySelector('.opacity'),
+            img = document.querySelector('.img'),
+            myCar = document.querySelector('#img'),
+            modalSign = document.querySelector('.modal');
+
+
+           let countDownNum = Number(countDown.innerHTML)
+
+           const modal = () =>{
+           modalSign.style.display ='block'
+           setTimeout(() => {
+           modalSign.style.display = 'none'
+           }, 7500);
+           }
+
+           const trafficLights = ()=>{
+              if(countDownNum === 50 && !(redLight.classList.contains('no-opacity-red'))){
+              opacityRed.classList.toggle('no-opacity-red');
+              green.classList.replace('no-opacity-green','opacity-green')
+              countDown.style.color = 'green'
+              myCar.classList.add('car-moving')
+              modalSign.innerHTML = 'Go!'
+              modalSign.style.color = 'green'
+
+            modal()
+            // myCar.style.animationPlayState = "play";
+            }
+            else if(countDownNum === 50 && redLight.classList.contains('no-opacity-red')){
+            opacityRed.classList.toggle('no-opacity-red');
+            green.classList.replace('opacity-green','no-opacity-green')
+            countDown.style.color = 'red'
+            myCar.classList.remove('car-moving')
+            modalSign.innerHTML = 'Stop!'
+            modalSign.style.color = 'red'
+            modal()
+            }
+            }
+
+            const AmbaBlink = ()=> {
+            setInterval(() => {
+              if (countDownNum <5 && countDownNum >0){
+            opacity.classList.toggle('no-opacity');
+            countDown.style.color = 'yellow'
+            }
+            }, 500);
+            }
+
+            const AutomateTraffic = ()=>{
+            yellow.classList.replace('opacity','no-opacity')
+            setInterval(() => {
+              if (countDownNum !== 0) {
+              countDown.innerHTML =  countDownNum--
+            }
+            else {
+            countDownNum = 50
+            countDown.innerHTML = countDownNum
+            }
+            trafficLights()
+        
+            }, 1000);
+
+            AmbaBlink()
+     
+            modal()
+            }
+
+            window.addEventListener('load', AutomateTraffic)
+            //Precious Diala O
+        </script>
+</body>
+</html>
